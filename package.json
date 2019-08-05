@@ -1,0 +1,33 @@
+{
+  "name": "spotify-charts",
+  "version": "1.0.0",
+  "description": "Spotify Charts for node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape ./test/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tymmesyde/node-spotify-charts.git"
+  },
+  "keywords": [
+    "spotify",
+    "charts",
+    "library",
+    "node"
+  ],
+  "author": "tymmesyde",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tymmesyde/node-spotify-charts/issues"
+  },
+  "homepage": "https://github.com/tymmesyde/node-spotify-charts#readme",
+  "dependencies": {
+    "csvtojson": "^2.0.10",
+    "moment": "^2.24.0",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "tape": "^4.11.0"
+  }
+}
