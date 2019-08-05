@@ -3,6 +3,7 @@ const moment = require('moment');
 const csv = require('csvtojson');
 
 const BASE_URL = "https://spotifycharts.com";
+const REGIONS = require('./regions.json');
 
 function req(path, limit) {
     return new Promise(resolve => {
@@ -21,13 +22,12 @@ function trimFirstLine(txt) {
     return trimmed.join('\n');
 }
 
-exports.getTopDailyGlobal = (limit = 200) => {
-    return req('regional/global/daily/latest', limit);
+exports.getRegions = () => {
+    return REGIONS;
 }
 
-exports.getTopGlobalByDate = (date = null, limit = 200) => {
-    if(moment(date, "YYYY-MM-DD", true).isValid()) return req(`regional/global/daily/${date}`, limit);
-    else return Promise.resolve(null);
+exports.getTopDailyGlobal = (limit = 200) => {
+    return req('regional/global/daily/latest', limit);
 }
 
 exports.getTopWeeklyGlobal = (limit = 200) => {
@@ -40,4 +40,8 @@ exports.getViralDailyGlobal = (limit = 50) => {
 
 exports.getViralWeeklyGlobal = (limit = 50) => {
     return req('viral/global/weekly/latest', limit);
+}
+
+exports.getCharts = ({ type = 'regional', region, daily = true, date = null, limit = 200 }) => {
+    return req(`${type}/${(REGIONS.includes(region) ? region : 'global')}/${(daily ? 'daily' : 'weekly')}/${(date && moment(date, "YYYY-MM-DD", true).isValid()) ? date : 'latest'}`, limit);
 }
