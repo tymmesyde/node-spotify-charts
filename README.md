@@ -9,7 +9,7 @@ Run
 
 ## Usage
 
-```
+```js
 const options = {
     type: 'regional',
     region: 'br',
@@ -25,7 +25,7 @@ SpotifyCharts.getCharts(options).then(res => {
 
 You will get an array of objects that looks like this:
 
-```
+```js
 [
     {
         rank: 1,
@@ -42,7 +42,8 @@ You will get an array of objects that looks like this:
 ### Methods
 
 #### getCharts
-```
+
+```js
 SpotifyCharts.getCharts(options).then(res => {
     console.log(res);
 });
@@ -50,10 +51,10 @@ SpotifyCharts.getCharts(options).then(res => {
 
 ##### Options
 
-```
+```js
 {
     type: 'viral', // Default: 'regional'; 'regional' = Top 200
-    region: 'fr, // Default: 'global'; Format: See getRegions
+    region: 'fr', // Default: 'global'; Format: See getRegions
     daily: false, // Default: true; false = Weekly
     date: '2019-08-01', // Default: null; Format: 'YYYY-MM-DD'
     limit: 10, // Default: 200
@@ -64,7 +65,7 @@ SpotifyCharts.getCharts(options).then(res => {
 
 Get the latest daily Top 200 global
 
-```
+```js
 SpotifyCharts.getTopDailyGlobal(200).then(res => {
     console.log(res);
 });
@@ -74,7 +75,7 @@ SpotifyCharts.getTopDailyGlobal(200).then(res => {
 
 Get the latest weekly Top 200 global
 
-```
+```js
 SpotifyCharts.getTopWeeklyGlobal(200).then(res => {
     console.log(res);
 });
@@ -84,7 +85,7 @@ SpotifyCharts.getTopWeeklyGlobal(200).then(res => {
 
 Get the latest daily Viral 50 global
 
-```
+```js
 SpotifyCharts.getViralDailyGlobal(50).then(res => {
     console.log(res);
 });
@@ -94,7 +95,7 @@ SpotifyCharts.getViralDailyGlobal(50).then(res => {
 
 Get the latest weekly Viral 50 global
 
-```
+```js
 SpotifyCharts.getViralWeeklyGlobal(50).then(res => {
     console.log(res);
 });
@@ -104,7 +105,7 @@ SpotifyCharts.getViralWeeklyGlobal(50).then(res => {
 
 Get an array of all available regions for `options.region` in `getCharts`
 
-```
+```js
 SpotifyCharts.getRegions().then(res => {
     console.log(res);
 });
